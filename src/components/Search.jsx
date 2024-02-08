@@ -5,6 +5,8 @@ export default function Search() {
 
 	function handleSearch(e) {
 		e.preventDefault();
+
+		// const res = fetch("https://www.github.com", { headers: "" });
 	}
 
 	return (
