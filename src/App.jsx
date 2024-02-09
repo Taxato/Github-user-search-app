@@ -30,7 +30,7 @@ export default function App() {
 	}
 
 	return (
-		<div className="m-auto flex max-w-[800px] flex-col gap-4">
+		<div className="m-auto flex w-[730px] flex-col gap-4">
 			<Header />
 			<Search onSearch={handleSearch} error={error} />
 
