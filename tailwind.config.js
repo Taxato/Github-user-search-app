@@ -14,6 +14,8 @@ export default {
 				"background-dark": "#141d2f",
 				"background-secondary-dark": "#1e2a47",
 				"text-primary-dark": "#ffffff",
+
+				error: "#f74646",
 			},
 			fontFamily: {
 				sans: "Space Mono",

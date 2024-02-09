@@ -1,14 +1,19 @@
 import { Octokit } from "@octokit/rest";
 
-const octokit = new Octokit({
-	auth: "",
-});
+const octokit = new Octokit();
 
-const res = await octokit.request("GET /users/{username}", {
-	username: "taxato",
-	headers: {
-		"X-GitHub-Api-Version": "2022-11-28",
-	},
-});
+export async function getUser(username) {
+	try {
+		const res = await octokit.request("GET /users/{username}", {
+			username,
+			headers: {
+				"X-GitHub-Api-Version": "2022-11-28",
+			},
+		});
 
-console.log(res);
+		const { data } = res;
+		return data;
+	} catch {
+		return null;
+	}
+}

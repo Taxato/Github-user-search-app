@@ -1,27 +1,40 @@
+import { useEffect, useState } from "react";
+
+import { getUser } from "./githubApi";
+
 import Header from "./components/Header";
 import Search from "./components/Search";
+import User from "./components/User";
 
 export default function App() {
+	const [user, setUser] = useState(null);
+	const [error, setError] = useState("");
+
+	useEffect(() => {
+		(async () => {
+			const defaultUser = await getUser("taxato");
+			setUser(defaultUser);
+		})();
+	}, []);
+
+	async function handleSearch(query) {
+		const user = await getUser(query);
+
+		// ERROR
+		if (user === null) {
+			setError("No results");
+		} else {
+			setUser(user);
+			setError("");
+		}
+	}
+
 	return (
-		<div className="m-auto flex h-1/2 w-1/2 flex-col gap-4">
+		<div className="m-auto flex max-w-[800px] flex-col gap-4">
 			<Header />
-			<Search />
+			<Search onSearch={handleSearch} error={error} />
+
+			<User user={user} />
 		</div>
 	);
 }
-
-/* 
-	devfinder
-	
-	Light
-	Dark
-	
-	Search GitHub username...
-	Search
-	
-	Joined
-	
-	Repos
-	Followers
-	Following
-*/
