@@ -25,7 +25,7 @@ export default function ThemeToggle() {
 
 			<img
 				className="self-center"
-				src={`./src/assets/icon-${darkMode ? "sun" : "moon"}.svg`}
+				src={`./icon-${darkMode ? "sun" : "moon"}.svg`}
 			/>
 		</button>
 	);

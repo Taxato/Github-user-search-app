@@ -11,7 +11,7 @@ export default function Search({ onSearch, error }) {
 
 	return (
 		<form className="flex h-16 w-full items-center justify-between rounded-2xl bg-background-secondary p-2 drop-shadow-xl dark:bg-background-secondary-dark">
-			<img className="mx-1 md:mx-4" src="./src/assets/icon-search.svg" />
+			<img className="mx-1 md:mx-4" src="./icon-search.svg" />
 			<input
 				className="m-2 grow bg-background-secondary text-sm text-text-primary outline-none placeholder:text-text-secondary dark:bg-background-secondary-dark dark:text-white dark:placeholder:text-white md:text-lg"
 				type="text"
