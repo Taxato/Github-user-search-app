@@ -30,7 +30,7 @@ export default function Content() {
 	}
 
 	return (
-		<div className="flex w-[min(80%,730px)] flex-col gap-4">
+		<div className="mx-4 flex flex-col gap-4 md:w-[min(80%,730px)]">
 			<Header />
 			<Search onSearch={handleSearch} error={error} />
 			<User user={user} />

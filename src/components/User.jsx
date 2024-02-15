@@ -28,11 +28,11 @@ export default function User({ user }) {
 				alt="avatar"
 			/>
 
-			<div className="flex grow flex-col gap-10">
+			<div className="flex grow flex-col gap-10 md:mx-6 lg:mx-0">
 				<div className="flex grow flex-col gap-2">
-					<div className="flex justify-between">
+					<div className="flex items-center gap-2 md:gap-8 lg:justify-between">
 						<img
-							className="h-28 w-28 rounded-full lg:hidden"
+							className="h-16 w-16 rounded-full md:h-28 md:w-28 lg:hidden"
 							src={img}
 							alt="avatar"
 						/>
@@ -41,19 +41,22 @@ export default function User({ user }) {
 								{name || login}
 							</h2>
 							<h3 className="text-primary">@{login}</h3>
+							<p className="block text-text-secondary dark:text-white lg:hidden">
+								Joined {joinedAt}
+							</p>
 						</div>
-						<p className="text-text-secondary dark:text-white">
+						<p className="hidden text-text-secondary dark:text-white lg:block">
 							Joined {joinedAt}
 						</p>
 					</div>
 					<p
-						className={`max-w-[32rem] break-words text-text-secondary dark:text-white ${bio ? "" : "opacity-75"}`}
+						className={`max-w-64 break-words pt-4 text-text-secondary  dark:text-white md:max-w-[32rem] ${bio ? "" : "opacity-75"}`}
 					>
 						{bio || "This profile has no bio"}
 					</p>
 				</div>
 
-				<div className="mr-6 flex gap-24 rounded-lg bg-background px-6 py-4 dark:bg-background-dark">
+				<div className="flex justify-between rounded-lg bg-background px-6 py-4 dark:bg-background-dark md:mr-6 md:justify-normal md:gap-24">
 					<div className="flex flex-col">
 						<span className="text-xs text-text-secondary dark:text-white">
 							Repos
@@ -80,7 +83,7 @@ export default function User({ user }) {
 					</div>
 				</div>
 
-				<ul className="grid grid-cols-2 gap-x-8 gap-y-4 text-text-secondary dark:text-white">
+				<ul className="grid grid-cols-1 gap-x-8 gap-y-4 text-text-secondary dark:text-white md:grid-cols-2">
 					<li
 						className={`flex gap-4 ${location ? "" : "opacity-50"}`}
 					>
@@ -121,10 +124,10 @@ export default function User({ user }) {
 
 						{blog ? (
 							<a
-								className="overflow-hidden text-nowrap hover:underline"
+								className="text-nowrap hover:underline"
 								href={`//${blog}`}
 							>
-								{blog}
+								{`${blog.slice(0, 20)}${blog.length > 20 ? "..." : ""}`}
 							</a>
 						) : (
 							<p>Not available</p>
