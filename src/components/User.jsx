@@ -108,7 +108,7 @@ export default function User({ user }) {
 					</li>
 					<li className={`flex gap-4 ${blog ? "" : "opacity-50"}`}>
 						<svg
-							className="w-full fill-text-secondary dark:fill-white"
+							className="h-full overflow-visible fill-text-secondary dark:fill-white"
 							height="20"
 							width="20"
 							xmlns="http://www.w3.org/2000/svg"
