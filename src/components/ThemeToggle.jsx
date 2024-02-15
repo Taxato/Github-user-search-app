@@ -3,7 +3,10 @@ import { useState } from "react";
 
 export default function ThemeToggle() {
 	const [darkMode, setDarkMode] = useState(
-		() => localStorage.getItem("darkMode") === "true",
+		() =>
+			localStorage.getItem("darkMode") === "true" ||
+			((!"darkMode") in localStorage &&
+				window.matchMedia("(prefers-color-scheme: dark)").matches),
 	);
 
 	useEffect(() => {
