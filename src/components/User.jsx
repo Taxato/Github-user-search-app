@@ -125,7 +125,7 @@ export default function User({ user }) {
 						{blog ? (
 							<a
 								className="text-nowrap hover:underline"
-								href={`//${blog}`}
+								href={blog}
 							>
 								{`${blog.slice(0, 20)}${blog.length > 20 ? "..." : ""}`}
 							</a>
